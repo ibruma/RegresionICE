@@ -102,6 +102,11 @@ fichero.Rmd -> fichero.md -> fichero.html
 - Presentaciones
 - Paneles de control
 
+El formato de salida se obtiene compilando el documento Rmd
+
+- Utilizando el símbolo knit ![](knit.jpg){width=5%} en Rstudio (`Ctrl + Shift + k`)
+
+
 
 ## Anatomía de un R Markdown
 
