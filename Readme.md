@@ -1,0 +1,11 @@
+## Técnicas de regresión con R
+
+En este repositorio están los archivos necesarios para el Bloque A del curso
+
+ - InvstReprd.Rmd. El archivo R markdown utilizado para crear la presentación
+ - InvstReprd.pdf. La presentación creada con el archivo R markdown
+ 
+ - EjemploRMarkdown.Rmd. El ejemplo de archivo Rmd que vamos a realizar en clase
+ - EjemploRMarkdown.html. La salida en formato html del archivo Rmd
+ - Purines_Metano2.xlsx. La hoja excel con los datos que se utilizan en el ejemplo
+ 
