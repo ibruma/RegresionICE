@@ -1,0 +1,111 @@
+---
+title: "Ejemplo documento R Markdown"
+author: "M.A. Ibáñez, J. C. Martinez Àvila"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message =  FALSE)
+```
+
+
+# Introducción
+
+Este es un documento R markdown en el que se explica como se puede crear un documento dinámico con R Markdown
+
+Para poder crear documento dinamico con R Markdown hay que instalar el paquete `rmarkdown`
+
+El siguiente código en R indica la instrucción que se debe ejecutar para instalar un paquete en R.
+
+`install.packages("rmarkdown")`
+
+
+Un paquete solo se instala en el ordenador una vez.
+
+
+
+
+# Datos
+
+Para este curso vamos a crear un carpeta que se llame ~RegresionICE~.
+
+En esa carpeta se van a guardar todos los archivos que se necesitan para seguir el curso.
+
+
+Los archivos necesarios están en la siguiente dirección:  [https://github.com/ibruma/RegresionICE.git](https://github.com/ibruma/RegresionICE.git)
+
+Para descargar un archivo pulsar sobre el archivo y luego en la pestaña ~Raw~. Descargar el archivo en la carpeta ~RegresionICE~ que se acaba de crear.
+
+
+Una vez creada la carpeta se crea, asociada a la carpeta, un proyecto de Rstudio.
+
+Para crear el proyecto se siguen los siguientes pasos:
+
+- En el menú de Rstudio seleccionar ´File/New Project..`.
+
+- En la ventana emergente seleccionar la opción `Existing Direcory`
+
+- En la siguiente ventana con el navegador se selecciona la carpeta ~RegresionICE~
+
+Pulsar en `Create Project`
+
+
+## Importar Datos
+En este ejemplo se va a trabajar con los datos del archivo `Purines_Metano2.xlsx` que es una hoja de datos en excel.
+
+Para importar dichos datos y crear un marco de datos utilizaremos la función `read_xlsx()` del paquete `readxl`.
+
+Si el paquete no está instalado lo instalamos utilizando la siguiente instrucción.
+
+
+`install.packages("readxl")`
+
+Para pode utilizar la función `read_xlsx()` hay que cargar en memoria el paquete utilizando la función `library()`tal y como se muestra en el siguiente código.
+
+```{r}
+## Carga en memoria el paquete readxl
+library(readxl)
+```
+
+Ahora ya es posible importar el archivo de datos
+
+```{r}
+## Importar el archivo de datos Purines_Metano2.xls
+Purines <- read_xlsx(path="Purines_metano2.xlsx")
+
+```
+
+
+`Purines` es un marco de datos que tiene `nrow(Purines)` filas y `ncol(Purines)` columnas.
+
+
+A continuación se muestran las 10 primeras filas de dicho marco de datos.
+
+```{r}
+knitr::kable(head(Purines),digits=2)
+```
+## Análisis Estadístico
+
+La siguiente figura muestra el gráfico de dispersión de la variable `CH4` frente a la variable `FND`.
+
+```{r,fig.align='center',fig.cap="Gráfico de dispersión de CH4 frente a FND"}
+plot(CH4 ~ FND,data=Purines)
+```
+
+A continuación se estima el modelo de regresión lineal simple que relaciona la variable `CH4` con la variable `FND`.
+
+
+```{r}
+## Estima del modelo de regresión lineal simple
+modelo <- lm(CH4 ~ FND,data=Purines)
+## Resultado del modelo estimado
+summary(modelo)
+```
+
+A continuación se muestra el gráfico de dispersión junto con la recta de regresión estimada.
+
+
+```{r,fig.align='center',fig.cap="Gráfico de dispersión de CH4 frente a FND y recta de regresión estimada"}
+plot(CH4 ~ FND,data=Purines)
+abline(modelo,lty=1,col="red")
+```
