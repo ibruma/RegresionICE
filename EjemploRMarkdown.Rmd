@@ -1,11 +1,11 @@
 ---
 title: "Ejemplo documento R Markdown"
-author: "M.A. Ibáñez, J. C. Martinez Àvila"
+author: "M.A. Ibáñez y J. C. Martinez Àvila"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message =  FALSE)
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE,comment=NA)
 ```
 
 
@@ -27,25 +27,25 @@ Un paquete solo se instala en el ordenador una vez.
 
 # Datos
 
-Para este curso vamos a crear un carpeta que se llame ~RegresionICE~.
+Para este curso vamos a crear un carpeta que se llame `RegresionICE`.
 
 En esa carpeta se van a guardar todos los archivos que se necesitan para seguir el curso.
 
 
 Los archivos necesarios están en la siguiente dirección:  [https://github.com/ibruma/RegresionICE.git](https://github.com/ibruma/RegresionICE.git)
 
-Para descargar un archivo pulsar sobre el archivo y luego en la pestaña ~Raw~. Descargar el archivo en la carpeta ~RegresionICE~ que se acaba de crear.
+Para descargar un archivo pulsar sobre el archivo y luego en la pestaña `Raw`. Descargar el archivo en la carpeta `RegresionICE` que se acaba de crear.
 
 
 Una vez creada la carpeta se crea, asociada a la carpeta, un proyecto de Rstudio.
 
 Para crear el proyecto se siguen los siguientes pasos:
 
-- En el menú de Rstudio seleccionar ´File/New Project..`.
+- En el menú de Rstudio seleccionar `File/New Project..`.
 
 - En la ventana emergente seleccionar la opción `Existing Direcory`
 
-- En la siguiente ventana con el navegador se selecciona la carpeta ~RegresionICE~
+- En la siguiente ventana con el navegador se selecciona la carpeta `RegresionICE`
 
 Pulsar en `Create Project`
 
@@ -60,7 +60,7 @@ Si el paquete no está instalado lo instalamos utilizando la siguiente instrucci
 
 `install.packages("readxl")`
 
-Para pode utilizar la función `read_xlsx()` hay que cargar en memoria el paquete utilizando la función `library()`tal y como se muestra en el siguiente código.
+Para pode utilizar la función `read_xlsx()` hay que cargar en memoria el paquete utilizando la función `library()` tal y como se muestra en el siguiente código.
 
 ```{r}
 ## Carga en memoria el paquete readxl
@@ -71,12 +71,12 @@ Ahora ya es posible importar el archivo de datos
 
 ```{r}
 ## Importar el archivo de datos Purines_Metano2.xls
-Purines <- read_xlsx(path="Purines_metano2.xlsx")
+Purines <- read_xlsx(path="Purines_Metano2.xlsx")
 
 ```
 
 
-`Purines` es un marco de datos que tiene `nrow(Purines)` filas y `ncol(Purines)` columnas.
+`Purines` es un marco de datos que tiene `r nrow(Purines)` filas y `r ncol(Purines)` columnas.
 
 
 A continuación se muestran las 10 primeras filas de dicho marco de datos.
@@ -88,7 +88,7 @@ knitr::kable(head(Purines),digits=2)
 
 La siguiente figura muestra el gráfico de dispersión de la variable `CH4` frente a la variable `FND`.
 
-```{r,fig.align='center',fig.cap="Gráfico de dispersión de CH4 frente a FND"}
+```{r,fig.align='center',fig.cap="Gráfico de dispersión de CH4 frente a FND",fig.width=5,fig.height=4}
 plot(CH4 ~ FND,data=Purines)
 ```
 
@@ -105,7 +105,7 @@ summary(modelo)
 A continuación se muestra el gráfico de dispersión junto con la recta de regresión estimada.
 
 
-```{r,fig.align='center',fig.cap="Gráfico de dispersión de CH4 frente a FND y recta de regresión estimada"}
+```{r,fig.align='center',fig.cap="Gráfico de dispersión de CH4 frente a FND y recta de regresión estimada",fig.height=4,fig.width=5}
 plot(CH4 ~ FND,data=Purines)
 abline(modelo,lty=1,col="red")
 ```
