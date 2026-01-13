@@ -3,7 +3,9 @@ title: "Investigación reproducible con R"
 subtitle: "Informes dinámicos con R Markdown" 
 author: >
 
-    M. A. Ibáñez y J.C. Martinez Ávila  
+    M. A. Ibáñez (miguel.ibanez@upm.es)  
+    
+    J.C. Martinez Ávila (jc.martinez.avila@upm.es)  
     
     Dpto Economía Agraria, Estadística y Gestión de Empresa  
     
@@ -34,7 +36,6 @@ knitr::knit_hooks$set(document = function(x) {sub('\\usepackage[]{color}', '\\us
 - Entender qué es investigación reproducible
 - Conocer R Markdown como herramienta clave
 - Crear informes dinámicos y automatizados
-- Aplicar buenas prácticas reproducibles
 
 
 
@@ -101,11 +102,6 @@ fichero.Rmd -> fichero.md -> fichero.html
 - Word
 - Presentaciones
 - Paneles de control
-
-El formato de salida se obtiene compilando el documento Rmd
-
-- Utilizando el símbolo knit ![](knit.jpg){width=5%} en Rstudio (`Ctrl + Shift + k`)
-
 
 
 ## Anatomía de un R Markdown
@@ -312,9 +308,9 @@ del marco de datos `cars`")
  
 ## 
 
- - R Markdown: The Definitive Guide [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/). Yihui Xie, J. J. Allaire, G. Grolemund. 2023 
+ - R Markdown: The Definitive Guide. [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/). Yihui Xie, J. J. Allaire, G. Grolemund. 2023 
 
- - R Markdown Cookbook[https://bookdown.org/yihui/rmarkdown-cookbook/](https://bookdown.org/yihui/rmarkdown-cookbook/). Yihui Xie, C. Dervieux, E. Riederer. 2025
+ - R Markdown Cookbook. [https://bookdown.org/yihui/rmarkdown-cookbook/](https://bookdown.org/yihui/rmarkdown-cookbook/). Yihui Xie, C. Dervieux, E. Riederer. 2025
  
  Yihui Xie [https://yihui.org](https://yihui.org) es ingeniero de software en RStudio [https://www.rstudio.com](https://www.rstudio.com).
  
