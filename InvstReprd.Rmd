@@ -105,6 +105,11 @@ fichero.Rmd -> fichero.md -> fichero.html
 - Presentaciones
 - Paneles de control
 
+El formato de salida se obtiene compilando el documento Rmd
+
+- Utilizando el símbolo knit ![](knit.jpg){width=5%} en Rstudio (`Ctrl + Shift + k`)
+
+
 
 ## Anatomía de un R Markdown
 
@@ -134,7 +139,7 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 ```
-# Texto con Markdown
+## Texto con Markdown
 ## Formato en línea
 
 
